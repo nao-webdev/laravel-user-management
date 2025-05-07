@@ -1,14 +1,15 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
+import dotenv from 'dotenv'
 import laravel from 'laravel-vite-plugin';
 
-export default defineConfig(({ mode }) => {
-  
-  const env = loadEnv(mode, process.cwd());
+dotenv.config();
 
-  return {
+export default defineConfig ({
+
     server: {
-      host: env.VITE_HOST || 'localhost',
-      port: parseInt(env.VITE_PORT) || 5173,
+      host: process.env.VITE_HOST || 'localhost',
+      port: parseInt(process.env.VITE_PORT) || 5173,
+      cors: true,
     },
     plugins: [
       laravel({
@@ -16,5 +17,4 @@ export default defineConfig(({ mode }) => {
         refresh: true,
       }),
     ],
-  };
 });
