@@ -24,7 +24,6 @@ class UserFactory extends Factory
             'role' => fake()->randomElement(['admin','user']),
         ];
     }
-
     /**
      * Indicate that the model's email address should be unverified.
      *
