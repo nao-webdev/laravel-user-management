@@ -9,6 +9,7 @@
 <body>
 @include('layouts.header')
 admin用メニュー
+<div id="app"></div>
 @include('layouts.footer')
 </body>
 </html>
